@@ -1,0 +1,35 @@
+<!doctype html>
+<title>{% block title %} {% endblock %} - Twitter News</title>
+<link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" />
+<div class="container">
+    <h1>News Tweets</h1>
+    <header>
+    <nav>
+        <ul>
+            <li>
+                <a href="{{ url_for('refresh', category=request.path[1:]) }}">
+                    <img src="{{ url_for('static', filename='refresh-icon.png') }}" />
+                </a>
+            </li>
+            <li {% if request.path== '/' or request.path == '/algeria' %}class="active"{% endif %}>
+                <a href="{{ url_for('algeria') }}">Algeria</a>
+            </li>
+            <li {% if request.path == '/world' %}class="active"{% endif %}>
+                <a href="{{ url_for('world') }}">World</a>
+            </li>
+            <li {% if request.path == '/sport' %}class="active"{% endif %}>
+                <a href="{{ url_for('sport') }}">Sport</a>
+            </li>
+            <li {% if request.path == '/science' %}class="active"{% endif %}>
+                <a href="{{ url_for('science') }}">Science</a>
+            </li>
+        </ul>
+    </nav>
+    </header>
+    <main>
+        <div class="tweets">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+</div>

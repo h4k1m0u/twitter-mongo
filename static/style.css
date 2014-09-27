@@ -1,0 +1,19 @@
+.hidden {display:none !important;}
+body {background-color:#DD4730;font-family:sans-serif;}
+.container {width:660px;margin:0 auto;}
+h1 {font-size:24px;font-weight:normal;letter-spacing:0.1em;color:#F3DBA9;}
+header {background-color:#3A3435;}
+header nav ul {overflow:hidden;list-style:none;margin:0;padding:0;}
+header nav ul li {float:left;padding:10px;height:20px;}
+header nav ul li:first-child {background-color:#F3DBA9;border-right:1px solid #fff;}
+header nav ul li:hover, header nav ul li.active {background-color:#5DBB6D;}
+header nav ul li a {color:white;font-weight:bold;text-decoration:none;}
+main {padding:6px;background-color:#f9f9f9;box-shadow:1px 5px 5px 0 #292a2d;}
+h2 {padding-left:10px;color:#3A3435;font-size:14px;}
+.no-tweets {line-height:100px;color:#a2a9b2;font-weight:bold;text-align:center;}
+.tweet {margin:5px 5px 15px 5px;padding:15px;text-align:center;background-color:#E6E9ED;box-shadow:0px 0px 2px 0px #999;}
+.tweet h3 {margin:0;}
+.tweet a {color:#3A3435;font-weight:bold;text-decoration:none;}
+.tweet a:hover {color:#5DBB6D;}
+.tweet a img {display:block;margin:0 auto;margin-top:10px;}
+.tweet a:hover img {opacity:0.75;}

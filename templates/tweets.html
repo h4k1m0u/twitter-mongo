@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <h2>{{ username }} :</h2>
+    {% if tweets %}
+        {% for tweet in tweets %}
+            <div class="tweet">
+                {# News #}
+                <h3>
+                    <a href="{{ tweet.url }}" alt="" title="" target="_blank">
+                        {{ tweet.text }}
+                        <img src="{{ tweet.image }}" alt="" title="" />
+                    </a>
+                </h3>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="no-tweets">
+            No Tweets.
+        </p>
+    {% endif %}
+{% endblock %}
