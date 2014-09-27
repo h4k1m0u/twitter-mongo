@@ -17,7 +17,8 @@ USERNAMES = {
     'algeria': 'DilemAli',
     'world': 'YahooNews',
     'sport': 'YahooSports',
-    'science': 'IFLScience'
+    'science': 'IFLScience',
+    'dictionnary': 'urbandictionary'
 }
 
 
@@ -104,9 +105,16 @@ def science():
     })
 
 
-@app.route('/item/<id>')
-def item(id):
-    return render_template('tweets.html')
+@app.route('/dictionnary')
+def dictionnary():
+    """ Get Twitter news in category dictionnary, from mongodb
+    """
+    tweets = g.collection.find({'category': 'dictionnary'})
+    return render_template('tweets.html', **{
+        'tweets': tweets,
+        'title': 'Urban dictionnary',
+        'username': '@urbandictionary'
+    })
 
 
 @app.route('/refresh/<category>')
@@ -123,8 +131,9 @@ def refresh(category=None):
         data['id'] = tweet.id
         data['text'] = tweet.text
         data['category'] = category
-        if 'media' in tweet.entities:
-            data['url'] = tweet.entities['media'][0]['url']
+        if 'urls' in tweet.entities and tweet.entities['urls']:
+            data['url'] = tweet.entities['urls'][0]['url']
+        if 'media' in tweet.entities and tweet.entities['media']:
             data['image'] = tweet.entities['media'][0]['media_url_https']
 
         g.collection.insert(data)

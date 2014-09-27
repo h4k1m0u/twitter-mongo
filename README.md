@@ -2,7 +2,7 @@ Twitter-news
 =============
 
 Get `10 last` news in given `category` from Twitter.
-Save them to a `MongoDB` table.
+Save them in a `MongoDB` collection.
 And show them on a `Flask` mini-website.
 
 **PS:**

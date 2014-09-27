@@ -23,6 +23,9 @@
             <li {% if request.path == '/science' %}class="active"{% endif %}>
                 <a href="{{ url_for('science') }}">Science</a>
             </li>
+            <li {% if request.path == '/dictionnary' %}class="active"{% endif %}>
+                <a href="{{ url_for('dictionnary') }}">Urban dictionnary</a>
+            </li>
         </ul>
     </nav>
     </header>
